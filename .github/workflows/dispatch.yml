@@ -4,7 +4,6 @@ on:
     inputs:
       user:
         description: 'your_user@deriv.com'
-        type: environment
         required: true
       ssh_key:
         description: 'SSH public key'
