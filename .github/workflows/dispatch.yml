@@ -1,8 +1,32 @@
 name: hello-world
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      user:
+        description: 'your_user@deriv.com'
+        type: environment
+        required: true
+      ssh_key:
+        description: 'SSH public key'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+      yubikey_id:
+        description: 'Yubikey id'
+        required: false
+        type: boolean
+
 jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
       - name: my-step
-        run: echo "Hello World!"
+        run: |
+         echo "Hello World!"
+         echo "user: ${{ input.user }}"
+         echo "ssh public key: ${{ input.ssh_key }}"
+         echo "yubikey id: ${{ input.yubikey_id }}"
