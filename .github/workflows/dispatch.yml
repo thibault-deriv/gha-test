@@ -26,6 +26,6 @@ jobs:
       - name: my-step
         run: |
          echo "Hello World!"
-         echo "user: ${{ input.user }}"
-         echo "ssh public key: ${{ input.ssh_key }}"
-         echo "yubikey id: ${{ input.yubikey_id }}"
+         echo "user: ${{ inputs.user }}"
+         echo "ssh public key: ${{ inputs.ssh_key }}"
+         echo "yubikey id: ${{ inputs.yubikey_id }}"
